@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
+</head>
+<body>
+    <div>
+        Hello From Index 
+    </div>
+    <p>Hello From {{name}} {{surname}} & i'm {{qualifications}} and learning {{lang}}</p>
+    <!-- <p>{{lang}}</p> -->
+    {% for mark in  marks %}
+        <span>{{mark}}</span>
+    {% endfor %}
+    <br>
+    {{footer | safe}}
+     <!-- Safe is used to parse text to html content -->
+</body>
+</html>

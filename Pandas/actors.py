@@ -1,0 +1,27 @@
+import csv
+
+file_path = r"C:\Users\Dinesh B Pawar\Downloads\Data Science\Pandas\actors.csv"
+
+# ✅ HEADERS
+headers = [
+    "Name",
+    "Age",
+    "Date of Birth",
+    "Career Start Year",
+    "Debut Film",
+    "Best Movie",
+    "Worst Movie",
+    "Spouse",
+    "Upcoming Film(s)"
+]
+
+# ✅ ACTOR DATA
+actors = [ ["Shah Rukh Khan", 60, "02-11-1965", 1992, "Deewana", "Dilwale Dulhania Le Jayenge", "Jab Harry Met Sejal", "Gauri Khan", "King"], ["Aamir Khan", 60, "14-03-1965", 1988, "Qayamat Se Qayamat Tak", "Lagaan", "Sitaare Zameen Par", "Kiran Rao (divorced)", "Happy Patel: Khatarnak Jasoos"], ["Salman Khan", 60, "27-12-1965", 1988, "Biwi Ho To Aisi", "Bajrangi Bhaijaan", "Sikandar", "Unmarried", "Upcoming projects (post-Sikandar)"], ["Akshay Kumar", 58, "09-09-1967", 1991, "Saugandh", "Hera Pheri", "Welcome to the Jungle", "Twinkle Khanna", "Upcoming projects"], ["Hrithik Roshan", 52, "10-01-1974", 2000, "Kaho Naa... Pyaar Hai", "Jodhaa Akbar", "War 2", "Saba Azad", "Upcoming projects"], ["Ranbir Kapoor", 43, "28-09-1982", 2007, "Saawariya", "Rockstar", "Animal", "Alia Bhatt", "Ramayana"], ["Ajay Devgn", 56, "02-04-1969", 1991, "Phool Aur Kaante", "Drishyam", "Singham Again", "Kajol", "Upcoming projects"], ["Amitabh Bachchan", 83, "11-10-1942", 1969, "Saat Hindustani", "Sholay", "Section 84", "Jaya Bachchan", "Upcoming projects"], ["Vicky Kaushal", 37, "16-05-1988", 2015, "Masaan", "Uri: The Surgical Strike", "Chhaava", "Katrina Kaif", "Upcoming projects"], ["Rajkummar Rao", 41, "31-08-1984", 2010, "Love Sex Aur Dhokha", "Newton", "Stree 2", "Patralekhaa", "Upcoming projects"], ["Akshaye Khanna", 50, "28-03-1975", 1997, "Himalay Putra", "Dil Chahta Hai", "Section 84", "Unmarried", "Section 84"], ["Ranveer Singh", 40, "06-07-1985", 2010, "Band Baaja Baaraat", "Bajirao Mastani", "Don 3", "Deepika Padukone", "Don 3"], ["Deepika Padukone", 40, "05-01-1986", 2006, "Om Shanti Om", "Padmaavat", "Kalki 2898 AD", "Ranveer Singh", "Upcoming projects"], ["Alia Bhatt", 32, "15-03-1993", 2012, "Student of the Year", "Gangubai Kathiawadi", "Jigra", "Ranbir Kapoor", "Upcoming projects"], ["Kartik Aaryan", 35, "22-11-1990", 2011, "Pyaar Ka Punchnama", "Bhool Bhulaiyaa 2", "Bhool Bhulaiyaa 3", "Unmarried", "Upcoming projects"], ["Shahid Kapoor", 44, "25-02-1981", 2003, "Ishq Vishk", "Haider", "Deva", "Mira Rajput", "Deva"], ["Varun Dhawan", 38, "24-04-1987", 2012, "Student of the Year", "Badlapur", "Baby John", "Natasha Dalal", "Upcoming projects"], ["Tiger Shroff", 35, "02-03-1990", 2014, "Heropanti", "War", "Baaghi 4", "Unmarried", "Baaghi 4"], ["Ayushmann Khurrana", 41, "14-09-1984", 2012, "Vicky Donor", "Andhadhun", "Dream Girl 2", "Tahira Kashyap", "Upcoming projects"], ["Sidharth Malhotra", 40, "16-01-1985", 2012, "Student of the Year", "Shershaah", "Yodha", "Kiara Advani", "Upcoming projects"], ["Sunny Deol", 69, "19-10-1956", 1983, "Betaab", "Gadar", "Lahore 1947", "Pooja Deol", "Lahore 1947"], ["Saif Ali Khan", 55, "16-08-1970", 1993, "Parampara", "Omkara", "Jewel Thief", "Kareena Kapoor", "Jewel Thief"], ["Anil Kapoor", 69, "24-12-1956", 1979, "Hamare Tumhare", "Mr. India", "Subedaar", "Sunita Kapoor", "Subedaar"], ["Bobby Deol", 56, "27-01-1969", 1995, "Barsaat", "Animal", "Kanguva", "Tanya Deol", "Kanguva"], ["R Madhavan", 55, "01-06-1970", 2000, "Alaipayuthey", "3 Idiots", "Test", "Sarita Birje", "Test"], ["Sanjay Dutt", 66, "29-07-1959", 1981, "Rocky", "Munna Bhai M.B.B.S.", "Welcome to the Jungle", "Manyata Dutt", "Welcome to the Jungle"], ["Emraan Hashmi", 46, "24-03-1979", 2003, "Footpath", "Awarapan", "Tiger 3", "Parveen Shahani", "Upcoming projects"], ]
+
+# ✅ WRITE CSV FILE
+with open(file_path, mode="w", newline="", encoding="utf-8") as file:
+    writer = csv.writer(file)
+    writer.writerow(headers)   # add headings
+    writer.writerows(actors)   # add data
+
+print("actors.csv created successfully with headings")

@@ -1,0 +1,43 @@
+div{
+    background: #09d3bf;
+    color: blue;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background: #111;
+    color: #fff;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #00c6ff;
+}
+
+.btn {
+    border: 1px solid #00c6ff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.content {
+    padding: 40px;
+}
