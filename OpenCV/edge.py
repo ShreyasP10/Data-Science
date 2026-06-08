@@ -19,16 +19,28 @@ image = cv2.imread("OpenCV/OIP.webp")
 # cv2.destoryAllWindows()
 
 #Sharpening
-image=cv2.imread("OpenCV\download.webp")
-sharpen_kernel= np.array([
-    [0,-1,0],
-    [-1,6,-1],
-    [0,-1,0]
-])
+# image=cv2.imread("OpenCV\download.webp")
+# sharpen_kernel= np.array([
+    # [0,-1,0],
+    # [-1,6,-1],
+    # [0,-1,0]
+# ])
 
-sharpened=cv2.filter2D(image,-1,sharpen_kernel)
+# sharpened=cv2.filter2D(image,-1,sharpen_kernel)
 
-cv2.imshow("Original Image", image)
-cv2.imshow("Sharpened Image", sharpened)
+# cv2.imshow("Original Image", image)
+# cv2.imshow("Sharpened Image", sharpened)
+# cv2.waitKey(0)
+# cv2.destoryAllWindows()
+
+
+
+#edges
+
+#canny edge detection
+image=cv2.imread("OpenCV\OIP (1).webp", cv2.IMREAD_GRAYSCALE)
+edges=cv2.Canny(image,100,200)
+cv2.imshow("Original Image", image) 
+cv2.imshow("Canny Edges", edges)
 cv2.waitKey(0)
-cv2.destoryAllWindows()
+cv2.destroyAllWindows()
