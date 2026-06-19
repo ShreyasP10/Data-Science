@@ -76,13 +76,50 @@ image = cv2.imread("OpenCV/OIP.webp")
 
 
 # contours
-image=cv2.imread("OpenCV/red-circle.webp")
-gray=cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+# image=cv2.imread("OpenCV/octal.webp")
+# gray=cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-_ , thresh=cv2.threshold(gray,240,255,cv2.THRESH_BINARY)
+# _ , thresh=cv2.threshold(gray,100,255,cv2.THRESH_BINARY)
+# contours,hierarchy=cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+
+# cv2.drawContours(image,contours,-1,(0,255,0),4)
+# cv2.imshow("Contours", image)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+
+#Shape Detection
+image=cv2.imread("OpenCV\octal.webp")
+gray=cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+_ , thresh=cv2.threshold(gray,100,255,cv2.THRESH_BINARY)
 contours,hierarchy=cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
 
-cv2.drawContours(image,contours,-1,(0,255,0),4)
-cv2.imshow("Contours", image)
+
+cv2.drawContours(image,contours,0,(0,255,0),4)
+
+for contour in contours:
+    approx=cv2.approxPolyDP(contour,0.01*cv2.arcLength(contour,True),True)
+    corners=len(approx)
+    if corners==3:
+        shape_name="Triangle"
+    elif corners==4:
+        shape_name="Quadrilateral"
+    elif corners==5:
+        shape_name="Pentagon"
+    elif corners==6:
+        shape_name="Hexagon"
+    elif corners==7:
+        shape_name="Heptagon"
+    # elif corners==8:
+    #     shape_name="Octagon"
+    else:
+        shape_name="Circle"
+    
+    cv2.drawContours(image,[approx],0,(255,0,0),4)
+    x=approx.ravel()[0]+10
+    y=approx.ravel()[1]
+    cv2.putText(image, shape_name, (x,y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2)
+
+cv2.imshow("Shape Detection", image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

@@ -1,1 +1,2 @@
-blurred =cv2.GaussianBlur(image, (21,21),0)
+    elif corners==8:
+        shape_name="Octagon
